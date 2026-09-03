@@ -1,0 +1,104 @@
+# SQL Data Cleaning & Exploratory Analysis — World Layoffs Dataset
+
+## 📌 Project Overview
+
+This project uses SQL to clean, standardize, and explore a layoffs dataset containing information about companies, locations, industries, layoffs, company stages, countries, dates, and funds raised.
+
+The project follows an end-to-end data analysis workflow:
+
+**Raw Data → Data Cleaning → Data Standardization → Exploratory Data Analysis → Trend Analysis**
+
+The main objective was to prepare the raw dataset for reliable analysis and then use SQL to explore patterns across companies, industries, locations, stages, and time periods.
+
+---
+
+## 📂 Dataset
+
+The dataset contains **2,361 records and 9 columns** covering:
+
+- Company
+- Location
+- Industry
+- Total Laid Off
+- Percentage Laid Off
+- Date
+- Company Stage
+- Country
+- Funds Raised (Millions)
+
+Source: [Kaggle — Layoffs 2022 Dataset](https://www.kaggle.com/datasets/swaptr/layoffs-2022)
+
+---
+
+## 🧹 Data Cleaning
+
+The first part of the project focused on preparing the raw data for analysis.
+
+### Key steps performed:
+
+- Created staging tables to work with the data while keeping the raw dataset separate.
+- Identified potential duplicate records using `ROW_NUMBER()`.
+- Verified duplicate records before removing them.
+- Standardized blank and missing industry values.
+- Filled missing industry information where matching company records were available.
+- Standardized inconsistent industry names.
+- Cleaned inconsistent country values.
+- Converted date values into a proper `DATE` format.
+- Reviewed NULL values and retained those that were relevant for analysis.
+- Removed records where both total layoffs and percentage layoffs were unavailable.
+- Removed temporary helper columns after cleaning.
+
+---
+
+## 📊 Exploratory Data Analysis
+
+After cleaning the data, SQL was used to explore different dimensions of the layoffs dataset.
+
+The analysis covered:
+
+- Companies with the highest single-day layoffs
+- Companies with the highest total layoffs
+- Layoffs by location
+- Layoffs by country
+- Layoffs by year
+- Layoffs by industry
+- Layoffs by company stage
+- Companies with the highest layoffs in each year
+- Cumulative layoffs over time
+
+---
+
+## 🧠 Advanced SQL Analysis
+
+The project also includes more advanced SQL techniques to perform deeper analysis.
+
+### Techniques used:
+
+- Aggregate Functions
+- `GROUP BY`
+- `ORDER BY`
+- `JOIN`
+- Common Table Expressions (CTEs)
+- `ROW_NUMBER()`
+- `DENSE_RANK()`
+- Window Functions
+- Date Functions
+- String Functions
+- `UPDATE`
+- `DELETE`
+- NULL Handling
+- Data Type Conversion
+
+For example, CTEs and `DENSE_RANK()` were used to identify the top companies by layoffs for each year, while window functions were used to calculate cumulative layoffs over time.
+
+---
+
+## 📁 Project Structure
+
+```text
+World-Layoffs-Analysis/
+│
+├── README.md
+├── layoffs.csv
+├── 01_Data_Cleaning.sql
+└── 02_Exploratory_Analysis.sql
